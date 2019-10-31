@@ -17,21 +17,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSM-46-eWg">
-                    <rect key="frame" x="0.0" y="44" width="414" height="21"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="teL-oF-5Ot">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="MyU-2e-c6D"/>
+                        <constraint firstAttribute="height" constant="44" id="E5K-OY-OTV"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wSM-46-eWg" secondAttribute="trailing" id="Afy-45-Awb"/>
-                <constraint firstItem="wSM-46-eWg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Khr-5v-S8h"/>
-                <constraint firstItem="wSM-46-eWg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iQ3-ch-UiN"/>
+                <constraint firstItem="teL-oF-5Ot" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VVH-Lt-k6h"/>
+                <constraint firstItem="teL-oF-5Ot" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="i7c-XX-kJ2"/>
+                <constraint firstItem="teL-oF-5Ot" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xYS-6Z-t7R"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="145"/>
