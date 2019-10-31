@@ -7,24 +7,110 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import AVFoundation
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+  private let disposeBag = DisposeBag()
+  let captureSession: AVCaptureSession =  .init()
+  let imageOutput: AVCapturePhotoOutput = .init()
+  let settings: AVCapturePhotoSettings = .init()
+  var previewLayer: AVCaptureVideoPreviewLayer = .init()
+  var cameraDevices: AVCaptureDevice!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    settingSession()
+    edgesForExtendedLayout = []//navigation bar とviewが被らないように
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+//    navigationController?.setNavigationBarHidden(true, animated: false)
+    startCapture()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    stopCapture()
+  }
+}
 
-        // Do any additional setup after loading the view.
+private extension CameraViewController {
+  
+  @IBAction func shootButton(_ sender: Any) {
+    print("シャッター押してるで!!")
+    settings.flashMode = .auto
+    // カメラの手ぶれ補正
+    settings.isAutoStillImageStabilizationEnabled = true
+    UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0.0)
+    
+    //スクショの処理を記述
+    imageOutput.capturePhoto(with: settings, delegate: self)
+  }
+  
+  //出力するimageDataに関すること(トリミングなど)
+  internal func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    let imageData = photo.fileDataRepresentation()
+    let trimmedImg = trimmingImage((UIImage(data: imageData!))!)
+    let jpegImageDate = trimmedImg.jpegData(compressionQuality: 1)
+    let udf = UserDefaults.standard
+    udf.set(jpegImageDate, forKey: "imageData")
+
+    let resultViewController = UIStoryboard(name: "Result", bundle: nil).instantiateInitialViewController() as! UIViewController
+    self.view.window?.rootViewController!.present(resultViewController, animated: true, completion: nil)
+  }
+  
+  // カメラの設定やセッションの組み立てはここで行う
+  func settingSession()
+  {
+    let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
+    // プロパティの条件を満たしたカメラデバイスの取得
+    let devices = deviceDiscoverySession.devices
+    for device in devices {
+      if device.position == AVCaptureDevice.Position.back {
+        cameraDevices = device
+      }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //バックカメラからVideoInputを取得
+    let videoInput: AVCaptureInput!
+    do {
+      videoInput = try AVCaptureDeviceInput.init(device: cameraDevices)
+    } catch {
+      videoInput = nil
     }
-    */
+    
+    //セッションに追加
+    captureSession.addInput(videoInput)
+    captureSession.addOutput(imageOutput)
+    //画像を表示するレイヤーを生成
+    previewLayer = .init(session: captureSession)
+    previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+    previewLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+    //Viewに追加
+    self.view.layer.insertSublayer(previewLayer, at: 0)
+  }
 
+  
+  //カメラ起動(セッションをスタート)
+  func startCapture() {
+    captureSession.startRunning()
+  }
+
+  // カメラを閉じる(セッションをストップ)
+  func stopCapture() {
+    captureSession.stopRunning()
+  }
+  
+  //正方形にトリミング
+  func trimmingImage(_ image: UIImage) -> UIImage {
+    let posX: CGFloat = image.size.width - image.size.height/2.9
+    let posY: CGFloat = 0.0
+    let edge: CGFloat = image.size.width
+    let rect: CGRect = CGRect(x : posX, y : posY, width : edge, height : edge)
+    let imgRef = image.cgImage?.cropping(to: rect)
+    let trimImage = UIImage(cgImage: imgRef!, scale: image.scale, orientation: image.imageOrientation)
+    return trimImage
+  }
 }
