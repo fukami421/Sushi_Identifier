@@ -21,6 +21,7 @@
 		38BFC6E2236ABEC60059961A /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6E0236ABEC60059961A /* CameraViewController.xib */; };
 		38BFC6E5236ABF0E0059961A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6E3236ABF0E0059961A /* MapViewController.swift */; };
 		38BFC6E6236ABF0E0059961A /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6E4236ABF0E0059961A /* MapViewController.xib */; };
+		38BFC6E8236AC20F0059961A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6E7236AC20F0059961A /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		38BFC6E0236ABEC60059961A /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		38BFC6E3236ABF0E0059961A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		38BFC6E4236ABF0E0059961A /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		38BFC6E7236AC20F0059961A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				38BFC6E0236ABEC60059961A /* CameraViewController.xib */,
 				38BFC6E3236ABF0E0059961A /* MapViewController.swift */,
 				38BFC6E4236ABF0E0059961A /* MapViewController.xib */,
+				38BFC6E7236AC20F0059961A /* TabBarViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				38BFC6E5236ABF0E0059961A /* MapViewController.swift in Sources */,
 				38BFC6E1236ABEC60059961A /* CameraViewController.swift in Sources */,
 				38BFC6AB236ABE470059961A /* SceneDelegate.swift in Sources */,
+				38BFC6E8236AC20F0059961A /* TabBarViewController.swift in Sources */,
 				38BFC6DD236ABEAF0059961A /* SearchViewController.swift in Sources */,
 				38BFC6AD236ABE470059961A /* ContentView.swift in Sources */,
 			);
