@@ -15,6 +15,12 @@
 		38BFC6B5236ABE4E0059961A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6B3236ABE4E0059961A /* LaunchScreen.storyboard */; };
 		38BFC6C0236ABE4F0059961A /* Sushi_IdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6BF236ABE4F0059961A /* Sushi_IdentifierTests.swift */; };
 		38BFC6CB236ABE4F0059961A /* Sushi_IdentifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6CA236ABE4F0059961A /* Sushi_IdentifierUITests.swift */; };
+		38BFC6DD236ABEAF0059961A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6DB236ABEAF0059961A /* SearchViewController.swift */; };
+		38BFC6DE236ABEAF0059961A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6DC236ABEAF0059961A /* SearchViewController.xib */; };
+		38BFC6E1236ABEC60059961A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6DF236ABEC60059961A /* CameraViewController.swift */; };
+		38BFC6E2236ABEC60059961A /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6E0236ABEC60059961A /* CameraViewController.xib */; };
+		38BFC6E5236ABF0E0059961A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6E3236ABF0E0059961A /* MapViewController.swift */; };
+		38BFC6E6236ABF0E0059961A /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6E4236ABF0E0059961A /* MapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		38BFC6C6236ABE4F0059961A /* Sushi_IdentifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sushi_IdentifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BFC6CA236ABE4F0059961A /* Sushi_IdentifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sushi_IdentifierUITests.swift; sourceTree = "<group>"; };
 		38BFC6CC236ABE4F0059961A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38BFC6DB236ABEAF0059961A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		38BFC6DC236ABEAF0059961A /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		38BFC6DF236ABEC60059961A /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		38BFC6E0236ABEC60059961A /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		38BFC6E3236ABF0E0059961A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		38BFC6E4236ABF0E0059961A /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,9 @@
 		38BFC6A7236ABE470059961A /* Sushi_Identifier */ = {
 			isa = PBXGroup;
 			children = (
+				38BFC6DA236ABE8A0059961A /* Models */,
+				38BFC6D9236ABE810059961A /* Views */,
+				38BFC6D8236ABE6D0059961A /* ViewModels */,
 				38BFC6A8236ABE470059961A /* AppDelegate.swift */,
 				38BFC6AA236ABE470059961A /* SceneDelegate.swift */,
 				38BFC6AC236ABE470059961A /* ContentView.swift */,
@@ -134,6 +149,33 @@
 				38BFC6CC236ABE4F0059961A /* Info.plist */,
 			);
 			path = Sushi_IdentifierUITests;
+			sourceTree = "<group>";
+		};
+		38BFC6D8236ABE6D0059961A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		38BFC6D9236ABE810059961A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38BFC6DB236ABEAF0059961A /* SearchViewController.swift */,
+				38BFC6DC236ABEAF0059961A /* SearchViewController.xib */,
+				38BFC6DF236ABEC60059961A /* CameraViewController.swift */,
+				38BFC6E0236ABEC60059961A /* CameraViewController.xib */,
+				38BFC6E3236ABF0E0059961A /* MapViewController.swift */,
+				38BFC6E4236ABF0E0059961A /* MapViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		38BFC6DA236ABE8A0059961A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				38BFC6B5236ABE4E0059961A /* LaunchScreen.storyboard in Resources */,
+				38BFC6E6236ABF0E0059961A /* MapViewController.xib in Resources */,
 				38BFC6B2236ABE4E0059961A /* Preview Assets.xcassets in Resources */,
+				38BFC6DE236ABEAF0059961A /* SearchViewController.xib in Resources */,
 				38BFC6AF236ABE4E0059961A /* Assets.xcassets in Resources */,
+				38BFC6E2236ABEC60059961A /* CameraViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +313,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				38BFC6A9236ABE470059961A /* AppDelegate.swift in Sources */,
+				38BFC6E5236ABF0E0059961A /* MapViewController.swift in Sources */,
+				38BFC6E1236ABEC60059961A /* CameraViewController.swift in Sources */,
 				38BFC6AB236ABE470059961A /* SceneDelegate.swift in Sources */,
+				38BFC6DD236ABEAF0059961A /* SearchViewController.swift in Sources */,
 				38BFC6AD236ABE470059961A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
