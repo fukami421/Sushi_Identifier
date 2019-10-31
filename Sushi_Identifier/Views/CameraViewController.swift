@@ -21,6 +21,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = "Camera"
     settingSession()
     edgesForExtendedLayout = []//navigation bar とviewが被らないように
   }
