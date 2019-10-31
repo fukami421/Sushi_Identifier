@@ -12,17 +12,19 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      // FirstViewControllerをタブのRootViewControllerに設定
-      let firstVC = UINavigationController(rootViewController: SearchViewController.init(nibName: nil, bundle: nil))
+      let searchVC = UINavigationController(rootViewController: SearchViewController.init(nibName: nil, bundle: nil))
       // タブのFooter部分を設定
-      firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+      searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
 
-      // SecondViewControllerをタブのRootViewControllerに設定
-      let secondVC = UINavigationController(rootViewController: MapViewController.init(nibName: nil, bundle: nil))
+      let cameraVC = UINavigationController(rootViewController: CameraViewController.init(nibName: nil, bundle: nil))
       // タブのFooter部分を設定
-      secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+      cameraVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+
+      let mapVC = UINavigationController(rootViewController: MapViewController.init(nibName: nil, bundle: nil))
+      // タブのFooter部分を設定
+      mapVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
       
-      self.viewControllers = [firstVC,secondVC]
+      self.viewControllers = [searchVC,cameraVC, mapVC]
         // Do any additional setup after loading the view.
     }
     

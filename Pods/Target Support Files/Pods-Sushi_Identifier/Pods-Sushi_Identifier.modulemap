@@ -1,0 +1,6 @@
+framework module Pods_Sushi_Identifier {
+  umbrella header "Pods-Sushi_Identifier-umbrella.h"
+
+  export *
+  module * { export * }
+}

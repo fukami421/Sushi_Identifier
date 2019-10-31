@@ -22,6 +22,7 @@
 		38BFC6E5236ABF0E0059961A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6E3236ABF0E0059961A /* MapViewController.swift */; };
 		38BFC6E6236ABF0E0059961A /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BFC6E4236ABF0E0059961A /* MapViewController.xib */; };
 		38BFC6E8236AC20F0059961A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6E7236AC20F0059961A /* TabBarViewController.swift */; };
+		623274BB1E8C61F1341FB1B6 /* Pods_Sushi_Identifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F46C554E9DF7A09F76EEF3 /* Pods_Sushi_Identifier.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,9 @@
 		38BFC6E3236ABF0E0059961A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		38BFC6E4236ABF0E0059961A /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		38BFC6E7236AC20F0059961A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A6F46C554E9DF7A09F76EEF3 /* Pods_Sushi_Identifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sushi_Identifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5AE2296F13564BD50A6E8E1 /* Pods-Sushi_Identifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sushi_Identifier.release.xcconfig"; path = "Target Support Files/Pods-Sushi_Identifier/Pods-Sushi_Identifier.release.xcconfig"; sourceTree = "<group>"; };
+		EF96785BF039CEBF1A49B57B /* Pods-Sushi_Identifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sushi_Identifier.debug.xcconfig"; path = "Target Support Files/Pods-Sushi_Identifier/Pods-Sushi_Identifier.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				623274BB1E8C61F1341FB1B6 /* Pods_Sushi_Identifier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +102,8 @@
 				38BFC6BE236ABE4F0059961A /* Sushi_IdentifierTests */,
 				38BFC6C9236ABE4F0059961A /* Sushi_IdentifierUITests */,
 				38BFC6A6236ABE470059961A /* Products */,
+				D2FB1AEFA0D395780AE5F05D /* Pods */,
+				A2A8400CE81EB8EA8A91A8C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +188,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A2A8400CE81EB8EA8A91A8C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6F46C554E9DF7A09F76EEF3 /* Pods_Sushi_Identifier.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2FB1AEFA0D395780AE5F05D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF96785BF039CEBF1A49B57B /* Pods-Sushi_Identifier.debug.xcconfig */,
+				C5AE2296F13564BD50A6E8E1 /* Pods-Sushi_Identifier.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38BFC6CF236ABE4F0059961A /* Build configuration list for PBXNativeTarget "Sushi_Identifier" */;
 			buildPhases = (
+				073AC9C721283731D95F7895 /* [CP] Check Pods Manifest.lock */,
 				38BFC6A1236ABE470059961A /* Sources */,
 				38BFC6A2236ABE470059961A /* Frameworks */,
 				38BFC6A3236ABE470059961A /* Resources */,
+				27B8216D26C1025B0557D8DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -309,6 +336,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		073AC9C721283731D95F7895 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sushi_Identifier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27B8216D26C1025B0557D8DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sushi_Identifier/Pods-Sushi_Identifier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sushi_Identifier/Pods-Sushi_Identifier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sushi_Identifier/Pods-Sushi_Identifier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		38BFC6A1236ABE470059961A /* Sources */ = {
@@ -484,6 +553,7 @@
 		};
 		38BFC6D0236ABE4F0059961A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF96785BF039CEBF1A49B57B /* Pods-Sushi_Identifier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +574,7 @@
 		};
 		38BFC6D1236ABE4F0059961A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5AE2296F13564BD50A6E8E1 /* Pods-Sushi_Identifier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
