@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   
   override func viewDidLoad() {
@@ -16,7 +16,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     self.title = "Search"
     self.searchBarSetUp()
   }
-  
+}
+
+extension SearchViewController: UISearchBarDelegate{
   func searchBarSetUp()
   {
     self.searchBar.delegate = self
@@ -27,7 +29,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     searchBar.scopeButtonTitles  = ["寿司屋", "寿司ネタ"]
     searchBar.showsScopeBar = true
   }
-  
+
   func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
     searchBar.showsCancelButton = true
     return true
