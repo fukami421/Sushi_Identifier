@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		387A661A236D1F6C00814192 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A6618236D1F6C00814192 /* TableViewCell.swift */; };
+		387A661B236D1F6C00814192 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387A6619236D1F6C00814192 /* TableViewCell.xib */; };
+		387A661D236D4F5E00814192 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A661C236D4F5E00814192 /* SearchViewModel.swift */; };
+		387A661F236D70E900814192 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A661E236D70E900814192 /* Test.swift */; };
 		38BFC6A9236ABE470059961A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6A8236ABE470059961A /* AppDelegate.swift */; };
 		38BFC6AB236ABE470059961A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6AA236ABE470059961A /* SceneDelegate.swift */; };
 		38BFC6AD236ABE470059961A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BFC6AC236ABE470059961A /* ContentView.swift */; };
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		387A6618236D1F6C00814192 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		387A6619236D1F6C00814192 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		387A661C236D4F5E00814192 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		387A661E236D70E900814192 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		38BFC6A5236ABE470059961A /* Sushi_Identifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sushi_Identifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BFC6A8236ABE470059961A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38BFC6AA236ABE470059961A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 		38BFC6D8236ABE6D0059961A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				387A661C236D4F5E00814192 /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -177,6 +186,8 @@
 				38BFC6E3236ABF0E0059961A /* MapViewController.swift */,
 				38BFC6E4236ABF0E0059961A /* MapViewController.xib */,
 				38BFC6E7236AC20F0059961A /* TabBarViewController.swift */,
+				387A6618236D1F6C00814192 /* TableViewCell.swift */,
+				387A6619236D1F6C00814192 /* TableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +195,7 @@
 		38BFC6DA236ABE8A0059961A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				387A661E236D70E900814192 /* Test.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,7 +214,6 @@
 				EF96785BF039CEBF1A49B57B /* Pods-Sushi_Identifier.debug.xcconfig */,
 				C5AE2296F13564BD50A6E8E1 /* Pods-Sushi_Identifier.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -314,6 +325,7 @@
 			files = (
 				38BFC6B5236ABE4E0059961A /* LaunchScreen.storyboard in Resources */,
 				38BFC6E6236ABF0E0059961A /* MapViewController.xib in Resources */,
+				387A661B236D1F6C00814192 /* TableViewCell.xib in Resources */,
 				38BFC6B2236ABE4E0059961A /* Preview Assets.xcassets in Resources */,
 				38BFC6DE236ABEAF0059961A /* SearchViewController.xib in Resources */,
 				38BFC6AF236ABE4E0059961A /* Assets.xcassets in Resources */,
@@ -385,10 +397,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				38BFC6A9236ABE470059961A /* AppDelegate.swift in Sources */,
+				387A661A236D1F6C00814192 /* TableViewCell.swift in Sources */,
 				38BFC6E5236ABF0E0059961A /* MapViewController.swift in Sources */,
+				387A661D236D4F5E00814192 /* SearchViewModel.swift in Sources */,
 				38BFC6E1236ABEC60059961A /* CameraViewController.swift in Sources */,
 				38BFC6AB236ABE470059961A /* SceneDelegate.swift in Sources */,
 				38BFC6E8236AC20F0059961A /* TabBarViewController.swift in Sources */,
+				387A661F236D70E900814192 /* Test.swift in Sources */,
 				38BFC6DD236ABEAF0059961A /* SearchViewController.swift in Sources */,
 				38BFC6AD236ABE470059961A /* ContentView.swift in Sources */,
 			);

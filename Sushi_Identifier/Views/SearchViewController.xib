@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Sushi_Identifier" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="teL-oF-5Ot" id="rtc-LE-oaX"/>
+                <outlet property="tableView" destination="yps-0E-Wy8" id="fsg-Nw-lPM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,15 +26,23 @@
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yps-0E-Wy8">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="yps-0E-Wy8" firstAttribute="top" secondItem="teL-oF-5Ot" secondAttribute="bottom" id="VGX-Cs-AAc"/>
                 <constraint firstItem="teL-oF-5Ot" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VVH-Lt-k6h"/>
+                <constraint firstItem="yps-0E-Wy8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="c4z-cw-UdJ"/>
+                <constraint firstAttribute="bottom" secondItem="yps-0E-Wy8" secondAttribute="bottom" id="eTB-O3-xMe"/>
                 <constraint firstItem="teL-oF-5Ot" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="i7c-XX-kJ2"/>
+                <constraint firstItem="yps-0E-Wy8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kwV-e8-sKU"/>
                 <constraint firstItem="teL-oF-5Ot" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xYS-6Z-t7R"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="145"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </view>
     </objects>
 </document>

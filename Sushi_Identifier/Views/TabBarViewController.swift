@@ -14,7 +14,7 @@ class TabBarViewController: UITabBarController {
       super.viewDidLoad()
       let searchVC = UINavigationController(rootViewController: SearchViewController.init(nibName: nil, bundle: nil))
       // タブのFooter部分を設定
-      searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+      searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
 
       let cameraVC = UINavigationController(rootViewController: CameraViewController.init(nibName: nil, bundle: nil))
       // タブのFooter部分を設定
@@ -24,7 +24,6 @@ class TabBarViewController: UITabBarController {
       // タブのFooter部分を設定
       mapVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
       
-      self.viewControllers = [searchVC,cameraVC, mapVC]
-        // Do any additional setup after loading the view.
+      self.viewControllers = [searchVC, cameraVC, mapVC]
     }
 }

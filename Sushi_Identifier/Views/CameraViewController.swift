@@ -22,6 +22,7 @@ class CameraViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Camera"
+    self.navigationController?.navigationBar.barTintColor = .white
     settingSession()
     edgesForExtendedLayout = []//navigation bar とviewが被らないように
   }

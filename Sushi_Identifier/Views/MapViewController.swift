@@ -12,5 +12,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
       self.title = "Map"
+      self.navigationController?.navigationBar.barTintColor = .white
     }
 }
