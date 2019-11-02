@@ -28,7 +28,7 @@ class SearchViewController: UIViewController {
   
     private func bindViewModel()
     {
-      self.searchBar.rx.text.asDriver()
+      self.searchBar.rx.text.orEmpty.asDriver()
         .drive(searchText)
         .disposed(by: self.disposeBag)
       

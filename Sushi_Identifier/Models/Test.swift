@@ -7,11 +7,37 @@
 //
 
 import Foundation
+struct Test: Codable {
+    let id: Int
+    let first: String
+    let last: String
 
-class Test: Codable {
-    let title: String
-    let publicTime: String
-    let forecasts: String
-    let location: String
-    let description: String
+    enum CodingKeys: String, CodingKey {
+        case id
+        case first = "first_name"
+        case last = "last_name"
+    }
 }
+//class Test: Codable {
+////  var title: String
+////  var publicTime: String
+////  var forecasts: String
+////  var location: String
+////  var description: String
+//
+//  var id: String
+//  var first: String
+//  var last: String
+//
+//  init()
+//  {
+//    self.id = ""
+//    self.first = ""
+//    self.last = ""
+////    self.title = ""
+////    self.publicTime = ""
+////    self.forecasts = ""
+////    self.location = ""
+////    self.description = ""
+//  }
+//}
