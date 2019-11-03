@@ -24,12 +24,10 @@ class CameraViewController: UIViewController {
     self.title = "Camera"
     self.navigationController?.navigationBar.barTintColor = .white
     settingSession()
-    edgesForExtendedLayout = []//navigation bar とviewが被らないように
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-//    navigationController?.setNavigationBarHidden(true, animated: false)
     startCapture()
   }
   
@@ -89,7 +87,7 @@ extension CameraViewController:AVCapturePhotoCaptureDelegate{
    //画像を表示するレイヤーを生成
    previewLayer = .init(session: captureSession)
    previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-   previewLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+   previewLayer.frame = CGRect(x: 0, y: !isNavBarHidden() ? statusBarHeight() + navBarHeight() : statusBarHeight(), width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
    //Viewに追加
    self.view.layer.insertSublayer(previewLayer, at: 0)
   }
@@ -115,4 +113,20 @@ extension CameraViewController:AVCapturePhotoCaptureDelegate{
    let trimImage = UIImage(cgImage: imgRef!, scale: image.scale, orientation: image.imageOrientation)
    return trimImage
   }
+}
+
+// View, NavigationBarの幅, 高さの取得
+extension CameraViewController {
+//    func viewWidth() -> CGFloat { return self.view.frame.width }
+//    func viewHeight(includeNavBarHeight: Bool = true, includeStatBarHeight: Bool = true) -> CGFloat {
+//        return self.view.frame.height - (includeStatBarHeight ? statBarHeight() : 0) - (includeNavBarHeight ? navBarHeight() : 0)
+//    }
+//
+//    func navBarWidth() -> CGFloat { return self.navigationController?.navigationBar.frame.size.width ?? 0 }
+    func navBarHeight() -> CGFloat { return self.navigationController?.navigationBar.frame.size.height ?? 0 }
+
+//    func statBarWidth() -> CGFloat { return UIApplication.shared.statusBarFrame.width }
+    func statusBarHeight() -> CGFloat { return view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 }
+
+    func isNavBarHidden() -> Bool { return self.navigationController?.isNavigationBarHidden ?? true }
 }
