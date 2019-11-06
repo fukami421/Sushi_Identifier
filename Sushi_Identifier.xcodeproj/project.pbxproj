@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386E533723726D340082DBAA /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E533523726D340082DBAA /* ResultViewController.swift */; };
+		386E533823726D340082DBAA /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E533623726D340082DBAA /* ResultViewController.xib */; };
 		387A661A236D1F6C00814192 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A6618236D1F6C00814192 /* TableViewCell.swift */; };
 		387A661B236D1F6C00814192 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387A6619236D1F6C00814192 /* TableViewCell.xib */; };
 		387A661D236D4F5E00814192 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387A661C236D4F5E00814192 /* SearchViewModel.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		386E533523726D340082DBAA /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		386E533623726D340082DBAA /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		387A6618236D1F6C00814192 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		387A6619236D1F6C00814192 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		387A661C236D4F5E00814192 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				38BFC6E7236AC20F0059961A /* TabBarViewController.swift */,
 				387A6618236D1F6C00814192 /* TableViewCell.swift */,
 				387A6619236D1F6C00814192 /* TableViewCell.xib */,
+				386E533523726D340082DBAA /* ResultViewController.swift */,
+				386E533623726D340082DBAA /* ResultViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				38BFC6DE236ABEAF0059961A /* SearchViewController.xib in Resources */,
 				38BFC6AF236ABE4E0059961A /* Assets.xcassets in Resources */,
 				38BFC6E2236ABEC60059961A /* CameraViewController.xib in Resources */,
+				386E533823726D340082DBAA /* ResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +413,7 @@
 				387A661F236D70E900814192 /* Test.swift in Sources */,
 				38BFC6DD236ABEAF0059961A /* SearchViewController.swift in Sources */,
 				38BFC6AD236ABE470059961A /* ContentView.swift in Sources */,
+				386E533723726D340082DBAA /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
