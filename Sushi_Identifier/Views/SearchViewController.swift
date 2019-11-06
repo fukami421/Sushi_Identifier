@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
     self.searchBarSetUp()
     self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     self.bindViewModel()
+    self.searchBar.delegate = self
   }
   
     private func bindViewModel()
@@ -33,6 +34,7 @@ class SearchViewController: UIViewController {
         .disposed(by: self.disposeBag)
       
       self.searchText.asObservable()
+        .filter{ $0 != nil }
         .bind(to: self.searchViewModel.searchWord)
         .disposed(by: self.disposeBag)
       
@@ -63,6 +65,11 @@ extension SearchViewController: UISearchBarDelegate{
   }
   
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.showsCancelButton = false
+    searchBar.resignFirstResponder()
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     searchBar.showsCancelButton = false
     searchBar.resignFirstResponder()
   }

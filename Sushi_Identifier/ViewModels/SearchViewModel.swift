@@ -21,32 +21,42 @@ class SearchViewModel {
     self.searchWord.asObservable()
       .subscribe(onNext: { value in
         print(value ?? "value")
-        print(self.api())
+        self.api()
       })
       .disposed(by: self.disposeBag)
   }
   
-  func api() -> [[Test]]
+//  func api() -> [[Test]]
+  func api()
   {
 //    let params: [String: AnyObject]? = [:]
-    let url = "https://todo-practice-app.herokuapp.com/items"
+    self.articles.removeAll()
+    let url = "https://qiita.com/api/v2/items"
     Alamofire.request(url, method: .get, parameters: nil)
       .validate(statusCode: 200..<300)
       .validate(contentType: ["application/json"])
       .responseJSON { response in
         switch response.result {
         case .success:
+          print("success!")
           guard let data = response.data else {
             return
           }
           let decoder = JSONDecoder()
           do {
-            let task: [Test] = try decoder.decode([Test].self, from: data)
-            self.articles.append(task)
-            print(task)
-            self.a.append(String(task[0].id))
-            print(self.a)
+            let tasks: [Qiita] = try decoder.decode([Qiita].self, from: data)
+//            self.articles.append(tasks)
+            for task in tasks
+            {
+//              var test = Test()
+              self.a.append(String(task.title))
+//            print("taskのidはこちら!: " + String(task.id))
+            }
+//            print(tasks)
+//            self.a.append(String(tasks[0].id))
+//            print(self.a)
             self.list.accept(self.a)
+            self.a.removeAll()
           } catch {
             print("error:")
             print(error)
@@ -55,6 +65,5 @@ class SearchViewModel {
           print("Failure!")
         }
     }
-    return self.articles
   }
 }

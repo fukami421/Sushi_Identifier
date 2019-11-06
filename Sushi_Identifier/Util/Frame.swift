@@ -14,8 +14,8 @@ class Frame
   
   static func viewWidth(view: UIView) -> CGFloat { return view.frame.width }
 
-  static func viewHeight(includeNavBarHeight: Bool = true, includeStatBarHeight: Bool = true, view: UIView) -> CGFloat {
-    return view.frame.height - (includeStatBarHeight ? Frame.statusBarHeight(view: view) : 0) - (includeNavBarHeight ? navBarHeight() : 0)
+  static func viewHeight(includeNavBarHeight: Bool = true, includeStatBarHeight: Bool = true, view: UIView, nav: UINavigationController) -> CGFloat {
+    return view.frame.height - (includeStatBarHeight ? Frame.statusBarHeight(view: view) : 0) - (includeNavBarHeight ? navBarHeight(nav: nav) : 0)
   }
 
   static func navBarWidth(nav: UINavigationController) -> CGFloat { return nav.navigationBar.frame.size.width }
