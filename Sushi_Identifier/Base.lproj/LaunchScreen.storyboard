@@ -24,12 +24,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寿司ネタ認識アプリ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfw-P2-8rh">
+                                <rect key="frame" x="8" y="369" width="398" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="Kly-Yb-WuX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="40C-Gj-rDl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="1vB-ja-ePv"/>
+                            <constraint firstItem="Kfw-P2-8rh" firstAttribute="centerX" secondItem="40C-Gj-rDl" secondAttribute="centerX" id="D4Y-Ct-FQw"/>
+                            <constraint firstItem="Kfw-P2-8rh" firstAttribute="top" secondItem="40C-Gj-rDl" secondAttribute="bottom" constant="56" id="E3y-eF-Mlc"/>
+                            <constraint firstItem="Kfw-P2-8rh" firstAttribute="top" secondItem="40C-Gj-rDl" secondAttribute="bottom" constant="56" id="HR4-ru-5D9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="40C-Gj-rDl" secondAttribute="trailing" constant="82" id="mtp-BM-QPz"/>
                             <constraint firstItem="40C-Gj-rDl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="181" id="uoS-Wd-Ov5"/>
+                            <constraint firstItem="Kfw-P2-8rh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="xSl-Kt-XnP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kfw-P2-8rh" secondAttribute="trailing" constant="8" id="yg8-1H-OZb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
