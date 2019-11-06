@@ -27,33 +27,38 @@ class SearchViewController: UIViewController {
     self.bindViewModel()
     self.searchBar.delegate = self
     self.tableView.refreshControl = self.refreshCtl
-//    refreshCtl.addTarget(self, action: #selector(SearchViewController.refresh(sender:)), for: .valueChanged)
+    refreshCtl.addTarget(self, action: #selector(SearchViewController.refresh(sender:)), for: .valueChanged)
   }
   
-    private func bindViewModel()
-    {
-      self.searchBar.rx.text.orEmpty.asDriver()
-        .drive(searchText)
-        .disposed(by: self.disposeBag)
-      
-      self.searchText.asObservable()
-        .filter{ $0 != nil }
-        .bind(to: self.searchViewModel.searchWord)
-        .disposed(by: self.disposeBag)
-      
-      self.searchViewModel.list
-        .bind(to: tableView.rx.items) { tableView, index, item in
-          let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as! TableViewCell
-          // 選択されたセルの色を変える
-          cell.backgroundColor = UIColor.clear
-          let selectedView = UIView()
-          selectedView.backgroundColor = UIColor.cyan
-          cell.selectedBackgroundView =  selectedView
-          cell.textLabel?.text = item
-        return cell
-      }
+  @objc func refresh(sender: UIRefreshControl) {
+    print("refresh!")
+    refreshCtl.endRefreshing()
+  }
+  
+  private func bindViewModel()
+  {
+    self.searchBar.rx.text.orEmpty.asDriver()
+      .drive(searchText)
       .disposed(by: self.disposeBag)
+    
+    self.searchText.asObservable()
+      .filter{ $0 != nil }
+      .bind(to: self.searchViewModel.searchWord)
+      .disposed(by: self.disposeBag)
+    
+    self.searchViewModel.list
+      .bind(to: tableView.rx.items) { tableView, index, item in
+        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as! TableViewCell
+        // 選択されたセルの色を変える
+        cell.backgroundColor = UIColor.clear
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor.cyan
+        cell.selectedBackgroundView =  selectedView
+        cell.textLabel?.text = item
+      return cell
     }
+    .disposed(by: self.disposeBag)
+  }
 }
 
 extension SearchViewController: UISearchBarDelegate{
