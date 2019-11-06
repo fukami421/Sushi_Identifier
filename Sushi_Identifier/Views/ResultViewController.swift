@@ -29,25 +29,6 @@ class ResultViewController: UIViewController {
     // 1. data型の値が存在するかチェック
     image = UIImage(data: udf.data(forKey: "imageData")!)
     self.imageView.image = image
-    self.imageView.frame = CGRect(x: 0, y: !isNavBarHidden() ? statusBarHeight() + navBarHeight() : statusBarHeight(), width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+    self.imageView.frame = CGRect(x: 0, y: !Frame.isNavBarHidden(nav: self.navigationController!) ? Frame.statusBarHeight(view: self.view) + Frame.navBarHeight(nav: self.navigationController!) : Frame.statusBarHeight(view: self.view), width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
   }
-  //    func viewWidth() -> CGFloat { return self.view.frame.width }
-  //    func viewHeight(includeNavBarHeight: Bool = true, includeStatBarHeight: Bool = true) -> CGFloat {
-  //        return self.view.frame.height - (includeStatBarHeight ? statBarHeight() : 0) - (includeNavBarHeight ? navBarHeight() : 0)
-  //    }
-  //
-  //    func navBarWidth() -> CGFloat { return self.navigationController?.navigationBar.frame.size.width ?? 0 }
-      func navBarHeight() -> CGFloat { return self.navigationController?.navigationBar.frame.size.height ?? 0 }
-
-  //    func statBarWidth() -> CGFloat { return UIApplication.shared.statusBarFrame.width }
-      func statusBarHeight() -> CGFloat { return view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 }
-
-      func isNavBarHidden() -> Bool { return self.navigationController?.isNavigationBarHidden ?? true }
-
 }
-
-//  private extension UIViewController{
-//    @IBAction func backToStoryboard(_ sender: Any) {
-//      self.dismiss(animated: true, completion: nil)
-//    }
-//  }
