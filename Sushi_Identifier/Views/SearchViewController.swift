@@ -16,6 +16,7 @@ class SearchViewController: UIViewController {
   let searchText = BehaviorRelay<String?>(value: "nil")
   private let searchViewModel = SearchViewModel()
   private let disposeBag = DisposeBag()
+  fileprivate let refreshCtl = UIRefreshControl()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,6 +26,8 @@ class SearchViewController: UIViewController {
     self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     self.bindViewModel()
     self.searchBar.delegate = self
+    self.tableView.refreshControl = self.refreshCtl
+//    refreshCtl.addTarget(self, action: #selector(SearchViewController.refresh(sender:)), for: .valueChanged)
   }
   
     private func bindViewModel()
@@ -41,6 +44,11 @@ class SearchViewController: UIViewController {
       self.searchViewModel.list
         .bind(to: tableView.rx.items) { tableView, index, item in
           let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as! TableViewCell
+          // 選択されたセルの色を変える
+          cell.backgroundColor = UIColor.clear
+          let selectedView = UIView()
+          selectedView.backgroundColor = UIColor.cyan
+          cell.selectedBackgroundView =  selectedView
           cell.textLabel?.text = item
         return cell
       }
