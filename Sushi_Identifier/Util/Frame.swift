@@ -22,7 +22,7 @@ class Frame
   
   static func navBarHeight(nav: UINavigationController) -> CGFloat { return nav.navigationBar.frame.size.height }
 
-  static func statusBarWidth() -> CGFloat { return UIApplication.shared.statusBarFrame.width }
+  static func statusBarWidth(view: UIView) -> CGFloat { return view.window?.windowScene?.statusBarManager?.statusBarFrame.width ?? 0 }
   
   static func statusBarHeight(view: UIView) -> CGFloat { return view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 }
 
