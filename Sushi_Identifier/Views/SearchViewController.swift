@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
     self.title = "Search"
     self.navigationController?.navigationBar.barTintColor = .white
     self.searchBarSetUp()
-    self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+    self.tableView.register(UINib(nibName: "CellViewController", bundle: nil), forCellReuseIdentifier: "CellViewController")
     self.bindViewModel()
     self.searchBar.delegate = self
     self.tableView.refreshControl = self.refreshCtl
@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
     
     self.searchViewModel.list
       .bind(to: tableView.rx.items) { tableView, index, item in
-        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as! TableViewCell
+        let cell: CellViewController = tableView.dequeueReusableCell(withIdentifier: "CellViewController")! as! CellViewController
         // 選択されたセルの色を変える
         cell.backgroundColor = UIColor.clear
         let selectedView = UIView()

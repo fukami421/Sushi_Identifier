@@ -31,7 +31,7 @@ class SearchViewModel {
   {
 //    let params: [String: AnyObject]? = [:]
     self.articles.removeAll()
-    let url = "http://127.0.0.1:5000/hello" // simulatorの場合
+    let url = "http://49.212.133.185:8899/" // simulatorの場合
     Alamofire.request(url, method: .get, parameters: nil)
       .validate(statusCode: 200..<300)
       .validate(contentType: ["application/json"])
