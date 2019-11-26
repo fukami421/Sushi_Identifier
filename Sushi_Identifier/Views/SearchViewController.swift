@@ -13,7 +13,7 @@ import RxCocoa
 class SearchViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
-  let searchText = BehaviorRelay<String?>(value: "nil")
+  let searchText = BehaviorRelay<String?>(value: "")
   private let searchViewModel = SearchViewModel()
   private let disposeBag = DisposeBag()
   fileprivate let refreshCtl = UIRefreshControl()

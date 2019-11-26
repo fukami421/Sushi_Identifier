@@ -26,7 +26,7 @@ class ResultViewModel {
     
     func api()
     {
-        let url = "https://qiita.com/api/v2/items"
+        let url = "http://127.0.0.1:5000/hello"
         let data = self.image!.jpegData(compressionQuality: 1)
         //デフォルトでpost通信になっている
         Alamofire.upload(
@@ -39,10 +39,19 @@ class ResultViewModel {
                     case .success(let upload, _, _):
                         print("success_img")
                         upload.responseJSON { response in
-                            guard let jsonResponse = response.result.value as? [String: Any] else{
+                            guard let data = response.data else{
                                 return
                             }
-                            print(jsonResponse)
+                            let decoder = JSONDecoder()
+                            do {
+                                let tasks = try decoder.decode(Test.self, from: data)
+                                print(tasks.message)
+                            } catch {
+                                print("error:")
+                                print(error)
+                            }
+
+                            print(data)
                         }
                 case .failure(let encodingError):
                     // 失敗

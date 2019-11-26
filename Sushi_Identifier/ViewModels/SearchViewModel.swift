@@ -31,7 +31,7 @@ class SearchViewModel {
   {
 //    let params: [String: AnyObject]? = [:]
     self.articles.removeAll()
-    let url = "https://qiita.com/api/v2/items"
+    let url = "http://127.0.0.1:5000/hello" // simulatorの場合
     Alamofire.request(url, method: .get, parameters: nil)
       .validate(statusCode: 200..<300)
       .validate(contentType: ["application/json"])
@@ -44,14 +44,15 @@ class SearchViewModel {
           }
           let decoder = JSONDecoder()
           do {
-            let tasks: [Qiita] = try decoder.decode([Qiita].self, from: data)
-//            self.articles.append(tasks)
-            for task in tasks
-            {
-//              var test = Test()
-              self.a.append(String(task.title))
-//            print("taskのidはこちら!: " + String(task.id))
-            }
+            let tasks = try decoder.decode(Test.self, from: data)
+            print(tasks.message)
+//            //            self.articles.append(tasks)
+//            for task in tasks
+//            {
+////              var test = Test()
+//              self.a.append(String(task.message))
+////            print("taskのidはこちら!: " + String(task.id))
+//            }
 //            print(tasks)
 //            self.a.append(String(tasks[0].id))
 //            print(self.a)

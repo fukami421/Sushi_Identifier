@@ -8,22 +8,26 @@
 
 import Foundation
 struct Test: Codable {
-  var id: Int
-  let first: String
-  let last: String
+    
+    let message: String
+//    var id: Int
+//    let first: String
+//    let last: String
 
-  enum CodingKeys: String, CodingKey {
-      case id
-      case first = "first_name"
-      case last = "last_name"
-  }
+//    enum CodingKeys: String, CodingKey {
+////      case id
+////      case first = "first_name"
+////      case last = "last_name"
+//        case message = "message"
+//    }
   
-  init()
-  {
-    self.id = 0
-    self.first = ""
-    self.last = ""
-  }
+    init()
+    {
+        self.message = ""
+//        self.id = 0
+//        self.first = ""
+//        self.last = ""
+    }
 }
 //class Test: Codable {
 ////  var title: String
