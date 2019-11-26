@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Sushi_Identifier" customModuleProvider="target">
             <connections>
-                <outlet property="searchBar" destination="teL-oF-5Ot" id="DA4-dT-mcD"/>
+                <outlet property="searchBar" destination="teL-oF-5Ot" id="qas-9g-jjt"/>
                 <outlet property="tableView" destination="yps-0E-Wy8" id="e6s-t7-dge"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

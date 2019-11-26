@@ -9,35 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Sushi_Identifier" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Sushi_Identifier" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJE-9S-lwk">
-                        <rect key="frame" x="253" y="4" width="51" height="37"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="51" id="EpW-rl-9wa"/>
-                        </constraints>
-                        <state key="normal" title="押して!"/>
-                        <connections>
-                            <action selector="button:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="adB-UR-3x8"/>
-                        </connections>
-                    </button>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="mJE-9S-lwk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="GX7-pd-kmv"/>
-                    <constraint firstAttribute="bottom" secondItem="mJE-9S-lwk" secondAttribute="bottom" constant="3" id="btA-1Y-xzX"/>
-                    <constraint firstAttribute="trailing" secondItem="mJE-9S-lwk" secondAttribute="trailing" constant="16" id="ncQ-Xq-XOK"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="button" destination="mJE-9S-lwk" id="Kcp-Zj-nqn"/>
-            </connections>
-            <point key="canvasLocation" x="13.043478260869566" y="-21.428571428571427"/>
+            <point key="canvasLocation" x="14" y="-11"/>
         </tableViewCell>
     </objects>
 </document>

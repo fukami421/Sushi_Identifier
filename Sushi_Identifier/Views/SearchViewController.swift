@@ -13,7 +13,6 @@ import RxCocoa
 class SearchViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
-  let searchText = BehaviorRelay<String?>(value: "")
   private let searchViewModel = SearchViewModel()
   private let disposeBag = DisposeBag()
   fileprivate let refreshCtl = UIRefreshControl()
@@ -23,9 +22,8 @@ class SearchViewController: UIViewController {
     self.title = "Search"
     self.navigationController?.navigationBar.barTintColor = .white
     self.searchBarSetUp()
-    self.tableView.register(UINib(nibName: "CellViewController", bundle: nil), forCellReuseIdentifier: "CellViewController")
+    self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     self.bindViewModel()
-    self.searchBar.delegate = self
     self.tableView.refreshControl = self.refreshCtl
     refreshCtl.addTarget(self, action: #selector(SearchViewController.refresh(sender:)), for: .valueChanged)
   }
@@ -37,22 +35,20 @@ class SearchViewController: UIViewController {
   
   private func bindViewModel()
   {
-    self.searchBar.rx.text.orEmpty.asDriver()
-      .drive(searchText)
-      .disposed(by: self.disposeBag)
-    
-    self.searchText.asObservable()
-      .filter{ $0 != nil }
-      .bind(to: self.searchViewModel.searchWord)
-      .disposed(by: self.disposeBag)
-    
+    self.searchBar.rx.text
+        .orEmpty
+        .subscribe(onNext: {value in
+            self.searchViewModel.searchWord.accept(value)
+        })
+        .disposed(by: self.disposeBag)
+        
     self.searchViewModel.list
       .bind(to: tableView.rx.items) { tableView, index, item in
-        let cell: CellViewController = tableView.dequeueReusableCell(withIdentifier: "CellViewController")! as! CellViewController
+        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as! TableViewCell
         // 選択されたセルの色を変える
         cell.backgroundColor = UIColor.clear
         let selectedView = UIView()
-        selectedView.backgroundColor = UIColor.cyan
+        selectedView.backgroundColor = UIColor.red
         cell.selectedBackgroundView =  selectedView
         cell.textLabel?.text = item
       return cell
