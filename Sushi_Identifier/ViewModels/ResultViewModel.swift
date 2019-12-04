@@ -21,7 +21,7 @@ class ResultViewModel {
     init(){
         self.image = UIImage(data: udf.data(forKey: "imageData")!)
         print(self.image!)
-        self.api()
+//        self.api()
     }
     
     func api()

@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CoreML
 
 class ResultViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -47,5 +48,83 @@ class ResultViewController: UIViewController {
         self.resultLbl.backgroundColor = .cyan
         self.resultLbl.textAlignment = NSTextAlignment.center
         self.view.addSubview(self.resultLbl)
+        self.executeModel()
+    }    
+}
+
+extension ResultViewController
+{
+    func executeModel()
+    {
+        let model = CreateML_1()
+        let imgSize: Int = 229
+        let imageShape: CGSize = CGSize(width: imgSize, height: imgSize)
+        
+        // CVPixelBufferへの変換
+        let pixelBuffer = image?.resize(to: imageShape).pixelBuffer()
+        
+        // 画像解析
+        guard let pb = pixelBuffer, let output = try? model.prediction(image: pb) else {
+            print("error")
+            return
+        }
+        
+        // 結果を表示
+        let percentage = output.classLabelProbs
+        self.resultLbl.text = output.classLabel
+        print("label: " + output.classLabel)
+        print(percentage)
+    }
+}
+
+extension UIImage {
+    func resize(to newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newSize.width, height: newSize.height), true, 1.0)
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resizedImage
+    }
+ 
+    func pixelBuffer() -> CVPixelBuffer? {
+        let width = self.size.width
+        let height = self.size.height
+        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
+                     kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        var pixelBuffer: CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault,
+                                         Int(width),
+                                         Int(height),
+                                         kCVPixelFormatType_32ARGB,
+                                         attrs,
+                                         &pixelBuffer)
+ 
+        guard let resultPixelBuffer = pixelBuffer, status == kCVReturnSuccess else {
+            return nil
+        }
+ 
+        CVPixelBufferLockBaseAddress(resultPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(resultPixelBuffer)
+ 
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        guard let context = CGContext(data: pixelData,
+                                      width: Int(width),
+                                      height: Int(height),
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: CVPixelBufferGetBytesPerRow(resultPixelBuffer),
+                                      space: rgbColorSpace,
+                                      bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
+                                        return nil
+        }
+ 
+        context.translateBy(x: 0, y: height)
+        context.scaleBy(x: 1.0, y: -1.0)
+ 
+        UIGraphicsPushContext(context)
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        UIGraphicsPopContext()
+        CVPixelBufferUnlockBaseAddress(resultPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+ 
+        return resultPixelBuffer
     }
 }
