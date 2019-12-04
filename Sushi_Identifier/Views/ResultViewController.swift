@@ -17,6 +17,7 @@ class ResultViewController: UIViewController {
     let resultViewModel = ResultViewModel()
     
     var image:UIImage?
+    var result = BehaviorRelay<String>(value: "寿司ネタを判定中です")
     var resultLbl = UILabel()
     var str:String!
     var ryu:Int?
@@ -30,9 +31,13 @@ class ResultViewController: UIViewController {
 
     func bind()
     {
-        self.resultViewModel.result
+        self.result
             .bind(to: self.resultLbl.rx.text)
             .disposed(by: self.disposeBag)
+        
+//        self.resultViewModel.result
+//            .bind(to: self.resultLbl.rx.text)
+//            .disposed(by: self.disposeBag)
     }
 
     private func setupUI()
@@ -49,7 +54,7 @@ class ResultViewController: UIViewController {
         self.resultLbl.textAlignment = NSTextAlignment.center
         self.view.addSubview(self.resultLbl)
         self.executeModel()
-    }    
+    }
 }
 
 extension ResultViewController
@@ -70,10 +75,10 @@ extension ResultViewController
         }
         
         // 結果を表示
-        let percentage = output.classLabelProbs
-        self.resultLbl.text = output.classLabel
+        let classLbl = output.classLabel
+        let percentage = floor(output.classLabelProbs[classLbl]! * 1000) / 10
+        self.result.accept(String(percentage) + "%の確率で" + classLbl + "です")
         print("label: " + output.classLabel)
-        print(percentage)
     }
 }
 
